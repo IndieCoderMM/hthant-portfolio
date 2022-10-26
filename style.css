@@ -12,18 +12,24 @@ body {
 header {
   display: flex;
   justify-content: space-between;
-  padding: 24px;
+  padding: 14px 24px 14px 24px;
 }
 
 .logo {
   color: #6070ff;
-  font-size: 1.5rem;
+  font-size: 18px;
   font-weight: 700;
+  text-decoration: none;
 }
 
 .hamburger-menu {
   display: flex;
   align-items: center;
+}
+
+.hamburger-menu img {
+  width: 18px;
+  height: 12px;
 }
 
 .headline {
@@ -38,27 +44,25 @@ header {
 }
 
 .headline h1 {
-  font-size: 2rem;
+  font-size: 40px;
   color: #172b4d;
   font-weight: 700;
-  margin-bottom: 0;
+  margin-bottom: 12px;
+  margin-top: 0;
 }
 
 .headline p {
-  font-size: 0.85rem;
+  font-size: 16px;
   color: #344563;
 }
 
-.headline a {
-  text-decoration: none;
+.headline .blue-text {
   color: #7f8cff;
 }
 
-.headline a:hover {
-  color: #6070ff;
-}
-
 .media-bar {
+  padding: 0;
+  list-style: none;
   display: flex;
   gap: 1rem;
   margin-top: 12px;

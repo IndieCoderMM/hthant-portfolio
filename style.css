@@ -46,6 +46,7 @@ header {
   flex-direction: column;
   justify-content: center;
   border-bottom-left-radius: 55px;
+  gap: 12px;
 }
 
 .headline h1 {
@@ -56,12 +57,15 @@ header {
   margin-top: 0;
 }
 
-.headline p {
+p {
+  margin: 0;
+  padding: 0;
   font-size: 16px;
+  line-height: 24px;
   color: #344563;
 }
 
-.headline .blue-text {
+.blue-text {
   color: #7f8cff;
 }
 
@@ -70,7 +74,8 @@ header {
   list-style: none;
   display: flex;
   gap: 1rem;
-  margin-top: 12px;
+
+  margin: 0;
 }
 
 .social-icon {
@@ -173,32 +178,59 @@ header {
   border-radius: 8px;
 }
 
-.see-project-btn {
+.btn {
   font-size: 17px;
   line-height: 24px;
-  width: 124px;
   height: 48px;
   color: #396df2;
   letter-spacing: 0.03em;
   padding: 12px;
   background-color: #fff;
-  border: solid 1px #7f8cff;
+  border: solid 1px #6070ff;
   border-radius: 8px;
-  margin-top: 24px;
+  margin: 0;
 }
 
-.see-project-btn:hover {
+.btn:hover {
   background-color: #6070ff;
   color: #fff;
   box-shadow: 0px 8px 16px rgba(64, 83, 252, 0.24);
 }
 
-.see-project-btn:focus {
+.btn:focus {
   background-color: #2230d2;
   color: #fff;
 }
 
-.see-project-btn:disabled {
+.btn:disabled {
   border-color: #c1c7d0;
   color: #5e6c84;
+}
+
+.btn.see-project-btn {
+  width: 124px;
+  margin-bottom: 12px;
+}
+
+/* About me section  */
+.aboutme {
+  background-color: #fff;
+  padding: 114px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border-top-right-radius: 55px;
+}
+
+.aboutme h1 {
+  margin: 0;
+  padding: 0;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 52px;
+  color: #172b4d;
+}
+
+.btn.get-resume-btn {
+  width: 162px;
 }

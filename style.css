@@ -5,14 +5,16 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #fff;
+  background-color: #e5e5e5;
   font-family: "Poppins", sans-serif;
 }
 
+/* Toolbar */
 header {
   display: flex;
   justify-content: space-between;
   padding: 14px 24px 14px 24px;
+  background-color: #fff;
 }
 
 .logo {
@@ -32,7 +34,9 @@ header {
   height: 12px;
 }
 
+/* Headline */
 .headline {
+  background-color: #fff;
   background-image: url("img/header-background.png");
   background-repeat: no-repeat;
   background-size: cover;
@@ -41,6 +45,8 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  border-bottom-left-radius: 55px;
+  gap: 12px;
 }
 
 .headline h1 {
@@ -51,30 +57,253 @@ header {
   margin-top: 0;
 }
 
-.headline p {
+p {
+  margin: 0;
+  padding: 0;
   font-size: 16px;
+  line-height: 24px;
   color: #344563;
 }
 
-.headline .blue-text {
+.blue-title {
+  margin: 0;
+  padding: 0;
   color: #7f8cff;
+  font-size: 16px;
+  font-weight: 500;
 }
 
 .media-bar {
   padding: 0;
   list-style: none;
   display: flex;
-  gap: 1rem;
-  margin-top: 12px;
+  gap: 21px;
+  margin: 0;
 }
 
 .social-icon {
   width: 25px;
   height: 25px;
-  padding: 2px;
+  padding: 3px;
 }
 
 .social-icon:hover {
   box-shadow: 1px 1px 5px #6070ff;
   border-radius: 3px;
+}
+
+/* Works Grid */
+.works {
+  display: grid;
+  grid-template-rows: repeat(4, 1fr);
+  grid-template-columns: 1fr;
+  gap: 88px;
+  padding: 24px;
+}
+
+.work-card {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  gap: 12px;
+  background-color: #fff;
+  border: 1px solid #dfe1e6;
+  border-radius: 16px;
+}
+
+.work-card h2 {
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 44px;
+  color: #172b4d;
+  margin: 0;
+  padding: 0;
+}
+
+.work-snapshot {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.work-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 13px;
+  line-height: 16px;
+  width: 236px;
+  height: 32px;
+  margin: 0;
+  padding: 0;
+  color: #7a869a;
+  list-style: none;
+}
+
+.work-info .circle {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #c1c7d0;
+}
+
+.work-info .author {
+  color: #344563;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.work-description {
+  margin: 0;
+  padding: 0;
+  font-size: 15px;
+  line-height: 24px;
+  color: #344563;
+}
+
+.work-tags {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  color: #6070ff;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.03em;
+  display: flex;
+  gap: 8px;
+}
+
+.work-tags li {
+  display: flex;
+  align-items: center;
+  padding: 4px 12px;
+  background-color: #ebebff;
+  border-radius: 8px;
+}
+
+.btn {
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 24px;
+  height: 48px;
+  color: #396df2;
+  letter-spacing: 0.03em;
+  padding: 12px;
+  background-color: #fff;
+  border: solid 1px #6070ff;
+  border-radius: 8px;
+  margin: 0;
+}
+
+.btn:hover {
+  background-color: #6070ff;
+  color: #fff;
+  box-shadow: 0 8px 16px rgba(64, 83, 252, 0.24);
+}
+
+.btn:focus {
+  background-color: #2230d2;
+  color: #fff;
+}
+
+.btn:disabled {
+  border-color: #c1c7d0;
+  color: #5e6c84;
+}
+
+.btn.see-project-btn {
+  width: 124px;
+  margin-bottom: 12px;
+}
+
+/* About me section  */
+.aboutme {
+  background-color: #fff;
+  padding: 114px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border-top-right-radius: 55px;
+}
+
+.aboutme h2 {
+  margin: 0;
+  padding: 0;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 52px;
+  color: #172b4d;
+}
+
+.btn.get-resume-btn {
+  width: 162px;
+}
+
+/* Skill list  */
+.skill-list {
+  list-style: none;
+  margin: 0;
+  margin-top: 24px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.skill header {
+  display: flex;
+  align-items: center;
+  padding: 24px 12px;
+  border-bottom: solid 1px #dfe1e6;
+}
+
+.skill.open header {
+  border: none;
+}
+
+.skill h3 {
+  color: #000;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 24px;
+  margin: 0;
+}
+
+.lang-container {
+  margin: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  gap: 12px;
+}
+
+.language {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 9px 12px;
+  background-color: #f7f7f9;
+  border-radius: 8px;
+}
+
+.language p {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 20px;
+  color: #253858;
+}
+
+.lang-logo {
+  width: 48px;
+  height: 48px;
+}
+
+.arrow {
+  width: 12px;
+  height: 12px;
+}
+
+.arrow.down-arrow {
+  transform: rotate(90deg);
 }

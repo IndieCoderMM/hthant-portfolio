@@ -65,8 +65,11 @@ p {
   color: #344563;
 }
 
-.blue-text {
+.blue-title {
+  margin: 0;
+  padding: 0;
   color: #7f8cff;
+  font-size: 16px;
   font-weight: 500;
 }
 
@@ -108,7 +111,7 @@ p {
   border-radius: 16px;
 }
 
-.work-card h1 {
+.work-card h2 {
   font-weight: 700;
   font-size: 32px;
   line-height: 44px;
@@ -224,7 +227,7 @@ p {
   border-top-right-radius: 55px;
 }
 
-.aboutme h1 {
+.aboutme h2 {
   margin: 0;
   padding: 0;
   font-weight: 700;
@@ -241,23 +244,67 @@ p {
 .skill-list {
   list-style: none;
   margin: 0;
+  margin-top: 24px;
   padding: 0;
   display: flex;
   flex-direction: column;
 }
 
-.skill-list li {
+.skill header {
+  display: flex;
+  align-items: center;
+  padding: 24px 12px;
+  border-bottom: solid 1px #dfe1e6;
+}
+
+.skill.open header {
+  border: none;
+}
+
+.skill h3 {
+  color: #000;
   font-size: 20px;
   font-weight: 500;
   line-height: 24px;
-  padding: 24px 12px;
-  color: #000;
-  border-bottom: solid 1px #dfe1e6;
-  display: flex;
-  justify-content: space-between;
+  margin: 0;
 }
 
-.skill-list .arrow {
-  font-size: 22px;
-  color: #acb7c3;
+.lang-container {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  gap: 12px;
+}
+
+.language {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 9px 12px;
+  background-color: #f7f7f9;
+  border-radius: 8px;
+}
+
+.language p {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 20px;
+  color: #253858;
+}
+
+.lang-logo {
+  width: 48px;
+  height: 48px;
+}
+
+.arrow {
+  width: 12px;
+  height: 12px;
+}
+
+.arrow.down-arrow {
+  transform: rotate(90deg);
 }

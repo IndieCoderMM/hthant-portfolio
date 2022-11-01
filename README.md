@@ -1,27 +1,26 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Portfolio Website
+# :computer: Portfolio Website 
 
-> Microverse portfolio website project
+> This is a portfolio website to showcase my projects.
 
-## Built With
+## :gear: Built With 
 
 - HTML
 - CSS
-- Flexbox
 
-## Authors
+## :black_nib: Authors
 
-👤 **IndieCoderMM**
+:man_astronaut: **IndieCoderMM**
 
 - GitHub: [@IndieCoderMM](https://github.com/IndieCoderMM)
 - Twitter: [@OoHeinth](https://twitter.com/OoHeinth)
 - LinkedIn: [hthantoo](https://www.linkedin.com/in/hthantoo)
 
-## Show your support
+## :star_struck: Show your support
 
 Give a ⭐️ if you like this project!
 
-## 📝 License
+## :scroll: License
 
 This project is [MIT](./MIT.md) licensed.

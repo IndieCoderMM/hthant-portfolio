@@ -261,19 +261,45 @@
         </li>
       </ul>
     </section>
-    <section class="form">
-      <section class="contact-me">
-        <h3>Contact me</h3>
-        <p>If you have an application you are interested in developing, a feature that you need built or a project that needs coding. I’d love to help with it </p>
-        <form action="#" method="post">
-        <input type="text" class="Details" name="name" placeholder="Uchechi" maxlength="30" required>
-        <input type="email" class="Details" name="name" placeholder="nwakauc1@gmail.com" required>
-        <input type="text" id="Details" name="name" placeholder="Write your message here" maxlength="500" required>
-        <div class="Action">
-          <button class="button-3" type="submit">Get in touch</button>
-        </div>
+    <section class="contact-page">
+      <form class="contact-form" action="#" method="post">
+        <h2>Contact me</h2>
+        <p>
+          If you have an application you are interested in developing, a feature
+          that you need built or a project that needs coding. I'd love to help
+          with it
+        </p>
+        <ul>
+          <li>
+            <input
+              type="text"
+              name="name"
+              placeholder="Your Name"
+              maxlength="30"
+              required
+            />
+          </li>
+          <li>
+            <input
+              type="email"
+              name="email"
+              placeholder="Your Email Address"
+              required
+            />
+          </li>
+          <li>
+            <textarea
+              name="message"
+              cols="30"
+              rows="5"
+              placeholder="Your Message Here..."
+            ></textarea>
+          </li>
+          <li>
+            <button class="btn contact-btn" type="submit">Get in touch</button>
+          </li>
+        </ul>
       </form>
-      </section>
     </section>
   </body>
 </html>

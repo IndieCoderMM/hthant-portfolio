@@ -88,7 +88,7 @@
           <li>css</li>
           <li>javaScript</li>
         </ul>
-        <button class="btn see-project-btn">See Project</button>
+        <button class="btn see-project-btn" type="button">See Project</button>
       </section>
       <section class="work-card">
         <img
@@ -113,7 +113,7 @@
           <li>css</li>
           <li>javaScript</li>
         </ul>
-        <button class="btn see-project-btn">See Project</button>
+        <button class="btn see-project-btn" type="button">See Project</button>
       </section>
       <section class="work-card">
         <img
@@ -138,7 +138,7 @@
           <li>css</li>
           <li>javaScript</li>
         </ul>
-        <button class="btn see-project-btn">See Project</button>
+        <button class="btn see-project-btn" type="button">See Project</button>
       </section>
       <section class="work-card">
         <img
@@ -163,7 +163,7 @@
           <li>css</li>
           <li>javaScript</li>
         </ul>
-        <button class="btn see-project-btn">See Project</button>
+        <button class="btn see-project-btn" type="button">See Project</button>
       </section>
     </section>
     <section class="aboutme">
@@ -209,7 +209,7 @@
           </a>
         </li>
       </ul>
-      <button class="btn get-resume-btn">Get my resume</button>
+      <button class="btn get-resume-btn" type="button">Get my resume</button>
       <ul class="skill-list">
         <li class="skill open">
           <header>
@@ -260,6 +260,52 @@
           </header>
         </li>
       </ul>
+    </section>
+    <section class="contact-page">
+      <form
+        class="contact-form"
+        action="https://formspree.io/f/xoqbpaae"
+        method="post"
+      >
+        <h2>Contact me</h2>
+        <p>
+          If you have an application you are interested in developing, a feature
+          that you need built or a project that needs coding. I'd love to help
+          with it
+        </p>
+        <ul>
+          <li>
+            <input
+              type="text"
+              name="name"
+              placeholder="Your Name"
+              maxlength="30"
+              required
+            />
+          </li>
+          <li>
+            <input
+              type="email"
+              name="email"
+              placeholder="Your Email Address"
+              required
+            />
+          </li>
+          <li>
+            <textarea
+              name="message"
+              cols="30"
+              rows="5"
+              placeholder="Your Message Here..."
+              maxlength="500"
+              required
+            ></textarea>
+          </li>
+          <li>
+            <button class="btn contact-btn" type="submit">Get in touch</button>
+          </li>
+        </ul>
+      </form>
     </section>
   </body>
 </html>

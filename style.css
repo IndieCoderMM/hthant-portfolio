@@ -321,6 +321,8 @@ p {
   background-size: contain;
   padding: 24px;
   border-top-left-radius: 60px;
+  display: flex;
+  flex-direction: column;
 }
 
 .contact-form h2 {

@@ -249,9 +249,7 @@ p {
 .about-page {
   background-color: #fff;
   padding: 114px 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+  display: grid;
   border-top-right-radius: 70px;
 }
 
@@ -417,16 +415,18 @@ textarea::placeholder {
 
 /* Desktop version  */
 @media (min-width: 768px) {
-  .headline {
-    background-image: url("img/header-bg-desktop.png");
-  }
-
+  /* Remove hamburger and display nav links */
   .nav-menu img {
     display: none;
   }
 
   .nav-menu ul {
     display: flex;
+  }
+
+  /* Change headline */
+  .headline {
+    background-image: url("img/header-bg-desktop.png");
   }
 
   .headline {
@@ -443,6 +443,7 @@ textarea::placeholder {
     line-height: 28px;
   }
 
+  /* Projects section */
   .works-page {
     gap: 142px;
     padding: 10%;
@@ -454,6 +455,7 @@ textarea::placeholder {
     padding: 20px 40px 20px 20px;
   }
 
+  /* Move image to right */
   .work-card:nth-child(even) {
     flex-direction: row-reverse;
     padding: 20px 20px 20px 40px;
@@ -487,5 +489,37 @@ textarea::placeholder {
 
   .work-description {
     font-size: 16px;
+  }
+
+  /* About Page */
+  .about-page {
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 20px;
+    padding-left: 100px;
+    padding-right: 80px;
+  }
+
+  .about-detail h2 {
+    color: #091e42;
+  }
+
+  .get-resume-btn {
+    margin-top: 30px;
+  }
+
+  .skill-list {
+    margin: 0;
+  }
+
+  .lang-container {
+    flex-direction: row;
+  }
+
+  .language {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 122px;
+    height: 120px;
   }
 }

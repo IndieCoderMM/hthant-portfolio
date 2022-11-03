@@ -353,7 +353,7 @@ p {
   background-repeat: no-repeat;
   background-size: contain;
   padding: 24px;
-  border-top-left-radius: 60px;
+  border-top-left-radius: 80px;
   display: flex;
   flex-direction: column;
 }
@@ -388,6 +388,9 @@ p {
 .contact-form li {
   padding: 0;
   margin: 0;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
 }
 
 .contact-form input,
@@ -430,7 +433,7 @@ textarea::placeholder {
   }
 
   .headline {
-    padding: 0 20% 0 20%;
+    padding: 0 20% 0 20%; /* Exact padding on template is too much for medium screen */
   }
 
   .headline h1 {
@@ -497,7 +500,7 @@ textarea::placeholder {
     grid-template-columns: 1fr 1fr;
     column-gap: 20px;
     padding-left: 100px;
-    padding-right: 80px;
+    padding-right: 40px;
   }
 
   .about-detail h2 {
@@ -521,5 +524,16 @@ textarea::placeholder {
     align-items: flex-start;
     width: 122px;
     height: 120px;
+  }
+
+  /* Contact Form */
+  .contact-form {
+    background-image: url("img/form-bg-desktop.png");
+    padding-left: 30%;
+    padding-right: 30%;
+  }
+
+  .contact-form li {
+    justify-content: center;
   }
 }

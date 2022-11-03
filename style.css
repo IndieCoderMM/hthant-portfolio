@@ -270,6 +270,7 @@ p {
   border: solid 1px #6070ff;
   border-radius: 8px;
   margin: 0;
+  transition: all 3s;
 }
 
 .btn:hover {

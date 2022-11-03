@@ -430,9 +430,6 @@ textarea::placeholder {
   /* Change headline */
   .headline {
     background-image: url("img/header-bg-desktop.png");
-  }
-
-  .headline {
     padding: 0 20% 0 20%; /* Exact padding on template is too much for medium screen */
   }
 

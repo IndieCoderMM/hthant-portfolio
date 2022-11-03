@@ -22,6 +22,12 @@ body {
   font-size: 18px;
   font-weight: 700;
   text-decoration: none;
+  transition: all 0.5s ease-in-out;
+}
+
+.logo:hover {
+  transform: translate(2px, 4px);
+  text-shadow: -3px -5px 8px #ddd;
 }
 
 .nav-menu {
@@ -50,10 +56,12 @@ body {
   font-size: 15px;
   line-height: 20px;
   color: #344563;
+  transition: all 0.2s ease-out;
 }
 
 .nav-menu a:hover {
   color: #6070ff;
+  font-size: 17px;
 }
 
 /* Headline */
@@ -70,6 +78,7 @@ body {
   justify-content: center;
   border-bottom-left-radius: 70px;
   gap: 12px;
+  position: relative;
 }
 
 .headline h1 {
@@ -78,6 +87,53 @@ body {
   font-weight: 700;
   margin-bottom: 12px;
   margin-top: 0;
+}
+
+.headline h1 span {
+  position: relative;
+  display: inline-block;
+  animation-name: bounce;
+  animation-delay: 1s;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-out;
+}
+
+.headline h1 span:nth-child(2) {
+  animation-delay: 1.1s;
+}
+
+.headline h1 span:nth-child(3) {
+  animation-delay: 1.2s;
+}
+
+.headline h1 span:nth-child(5) {
+  animation-delay: 1.3s;
+}
+
+.headline h1 span:nth-child(6) {
+  animation-delay: 1.4s;
+}
+
+.headline h1 span:nth-child(7) {
+  animation-delay: 1.5s;
+}
+
+.headline h1 span:nth-child(8) {
+  animation-delay: 1.6s;
+}
+
+@keyframes bounce {
+  0%,
+  40%,
+  100% {
+    transform: translateY(0);
+  }
+
+  20% {
+    transform: translateY(-20px);
+    text-shadow: 0 10px 15px #bbb;
+  }
 }
 
 p {
@@ -108,11 +164,87 @@ p {
   width: 25px;
   height: 25px;
   padding: 3px;
+  transition: all 0.3s linear;
 }
 
 .social-icon:hover {
   box-shadow: 1px 1px 5px #6070ff;
+  transform: scale(1.2);
   border-radius: 3px;
+}
+
+.shape {
+  position: absolute;
+  background-size: contain;
+  background-position: top left;
+  background-repeat: no-repeat;
+}
+
+.shape.blue-circle {
+  top: 15%;
+  right: 25%;
+  width: 50px;
+  height: 50px;
+  background-color: #6070ff;
+  border-radius: 50%;
+}
+
+.shape.white-circle {
+  top: 10%;
+  right: 40%;
+  width: 30px;
+  height: 30px;
+  border: solid 0.1px #6070ff6a;
+  border-radius: 50%;
+  animation-delay: 1s;
+}
+
+.arc {
+  bottom: 20%;
+  left: 5%;
+  width: 50px;
+  height: 50px;
+  background-image: url("img/arc-blue.png");
+}
+
+.float-anim {
+  box-shadow: 0 8px 10px rgba(0, 0, 0, 0.5);
+  animation-name: floating;
+  animation-duration: 5s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: initial;
+}
+
+.rotate-anim {
+  animation-name: rotation;
+  animation-duration: 30s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: initial;
+}
+
+@keyframes floating {
+  0%,
+  100% {
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.5);
+    transform: translateY(0);
+  }
+
+  50% {
+    box-shadow: 0 15px 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 /* Works Grid */
@@ -138,7 +270,13 @@ p {
 
 .work-snapshot {
   width: 100%;
-  border-radius: 8px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.work-snapshot:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5);
 }
 
 .work-detail {
@@ -224,6 +362,8 @@ p {
   border: solid 1px #6070ff;
   border-radius: 8px;
   margin: 0;
+  cursor: pointer;
+  transition: all 0.5s ease-in;
 }
 
 .btn:hover {

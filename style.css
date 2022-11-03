@@ -22,6 +22,12 @@ body {
   font-size: 18px;
   font-weight: 700;
   text-decoration: none;
+  transition: all 0.5s ease;
+}
+
+.logo:hover {
+  transform: translate(2px, 4px);
+  text-shadow: -3px -5px 8px #ddd;
 }
 
 .nav-menu {
@@ -50,10 +56,12 @@ body {
   font-size: 15px;
   line-height: 20px;
   color: #344563;
+  transition: all 0.2s ease-out;
 }
 
 .nav-menu a:hover {
   color: #6070ff;
+  font-size: 17px;
 }
 
 /* Headline */
@@ -154,10 +162,12 @@ p {
   width: 25px;
   height: 25px;
   padding: 3px;
+  transition: all 0.3s linear;
 }
 
 .social-icon:hover {
   box-shadow: 1px 1px 5px #6070ff;
+  transform: scale(1.2);
   border-radius: 3px;
 }
 
@@ -270,7 +280,7 @@ p {
   border: solid 1px #6070ff;
   border-radius: 8px;
   margin: 0;
-  transition: all 3s;
+  transition: all 0.5s ease-in;
 }
 
 .btn:hover {

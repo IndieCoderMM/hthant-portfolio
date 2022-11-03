@@ -10,7 +10,7 @@ body {
 }
 
 /* Toolbar */
-header {
+.toolbar {
   display: flex;
   justify-content: space-between;
   padding: 14px 24px 14px 24px;
@@ -24,28 +24,51 @@ header {
   text-decoration: none;
 }
 
-.hamburger-menu {
+.nav-menu {
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
-.hamburger-menu img {
+.nav-menu img {
   width: 18px;
   height: 12px;
+}
+
+.nav-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: none; /* becomes flex on desktop */
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 20px;
+  color: #344563;
+}
+
+.nav-menu a:hover {
+  color: #6070ff;
 }
 
 /* Headline */
 .headline {
   background-color: #fff;
-  background-image: url("img/header-background.png");
+  background-image: url("img/header-bg-mobile.png");
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: top right;
   min-height: 100vh;
   padding: 24px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border-bottom-left-radius: 55px;
+  border-bottom-left-radius: 70px;
   gap: 12px;
 }
 
@@ -93,12 +116,14 @@ p {
 }
 
 /* Works Grid */
-.works {
+.works-page {
   display: grid;
   grid-template-rows: repeat(4, 1fr);
   grid-template-columns: 1fr;
   gap: 88px;
   padding: 24px;
+  margin-top: 114px;
+  margin-bottom: 114px;
 }
 
 .work-card {
@@ -111,7 +136,18 @@ p {
   border-radius: 16px;
 }
 
-.work-card h2 {
+.work-snapshot {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.work-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.work-detail h2 {
   font-weight: 700;
   font-size: 32px;
   line-height: 44px;
@@ -120,20 +156,13 @@ p {
   padding: 0;
 }
 
-.work-snapshot {
-  width: 100%;
-  border-radius: 8px;
-}
-
 .work-info {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 12px;
   font-size: 13px;
   line-height: 16px;
-  width: 236px;
-  height: 32px;
   margin: 0;
   padding: 0;
   color: #7a869a;
@@ -164,11 +193,12 @@ p {
 
 .work-tags {
   list-style: none;
-  margin: 0;
+  margin: 0 0 20px 0;
   padding: 0;
   color: #6070ff;
   font-size: 12px;
   line-height: 16px;
+  font-weight: 500;
   letter-spacing: 0.03em;
   display: flex;
   gap: 8px;
@@ -212,22 +242,26 @@ p {
   color: #5e6c84;
 }
 
-.btn.see-project-btn {
+.see-project-btn {
   width: 124px;
   margin-bottom: 12px;
 }
 
 /* About me section  */
-.aboutme {
+.about-page {
   background-color: #fff;
   padding: 114px 24px;
+  display: grid;
+  border-top-right-radius: 70px;
+}
+
+.about-detail {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  border-top-right-radius: 55px;
 }
 
-.aboutme h2 {
+.about-detail h2 {
   margin: 0;
   padding: 0;
   font-weight: 700;
@@ -252,6 +286,7 @@ p {
 
 .skill header {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   padding: 24px 12px;
   border-bottom: solid 1px #dfe1e6;
@@ -315,12 +350,12 @@ p {
 
 .contact-form {
   background-color: #6070ff;
-  background-image: url("img/form-background-mobile.png");
+  background-image: url("img/form-bg-mobile.png");
   background-position: top right;
   background-repeat: no-repeat;
   background-size: contain;
   padding: 24px;
-  border-top-left-radius: 60px;
+  border-top-left-radius: 80px;
   display: flex;
   flex-direction: column;
 }
@@ -355,6 +390,9 @@ p {
 .contact-form li {
   padding: 0;
   margin: 0;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
 }
 
 .contact-form input,
@@ -378,4 +416,123 @@ textarea::placeholder {
 
 .contact-btn {
   width: 140px;
+}
+
+/* Desktop version  */
+@media (min-width: 768px) {
+  /* Remove hamburger and display nav links */
+  .nav-menu img {
+    display: none;
+  }
+
+  .nav-menu ul {
+    display: flex;
+  }
+
+  /* Change headline */
+  .headline {
+    background-image: url("img/header-bg-desktop.png");
+    padding: 0 20% 0 20%; /* Exact padding on template is too much for medium screen */
+  }
+
+  .headline h1 {
+    font-size: 48px;
+    color: #091e42;
+  }
+
+  .headline p {
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  /* Projects section */
+  .works-page {
+    gap: 142px;
+    padding: 10%;
+  }
+
+  .work-card {
+    flex-direction: row;
+    gap: 30px;
+    padding: 20px 40px 20px 20px;
+  }
+
+  /* Move image to right */
+  .work-card:nth-child(even) {
+    flex-direction: row-reverse;
+    padding: 20px 20px 20px 40px;
+  }
+
+  .work-snapshot {
+    max-width: 50%;
+    height: auto;
+  }
+
+  .work-detail {
+    padding-top: 24px;
+    gap: 10px;
+  }
+
+  .work-detail h2 {
+    font-size: 40px;
+    color: #091e42;
+    line-height: 52px;
+  }
+
+  .work-tags {
+    margin-top: 14px;
+  }
+
+  .work-info {
+    font-size: 18px;
+    line-height: 24px;
+    color: #6b778c;
+  }
+
+  .work-description {
+    font-size: 16px;
+  }
+
+  /* About Page */
+  .about-page {
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 20px;
+    padding-left: 100px;
+    padding-right: 40px;
+  }
+
+  .about-detail h2 {
+    color: #091e42;
+  }
+
+  .get-resume-btn {
+    margin-top: 30px;
+  }
+
+  .skill-list {
+    margin: 0;
+  }
+
+  .lang-container {
+    flex-direction: row;
+  }
+
+  .language {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 122px;
+    height: 120px;
+  }
+
+  /* Contact Form */
+  .contact-form {
+    background-image: url("img/form-bg-desktop.png");
+    padding-left: 30%;
+    padding-right: 30%;
+  }
+
+  .contact-form li {
+    justify-content: center;
+  }
 }

@@ -535,6 +535,10 @@ p {
   justify-content: flex-start;
 }
 
+.contact-form label {
+  display: none;
+}
+
 .contact-form input,
 textarea {
   font-family: "Poppins", sans-serif;

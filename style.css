@@ -6,7 +6,7 @@ body {
   margin: 0;
   padding: 0;
   background-color: #e5e5e5;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 /* Toolbar */
@@ -37,8 +37,8 @@ body {
 }
 
 .nav-menu img {
-  width: 18px;
-  height: 12px;
+  width: 24px;
+  height: 24px;
 }
 
 .nav-menu ul {
@@ -46,13 +46,8 @@ body {
   margin: 0;
   padding: 0;
   display: none; /* becomes flex on desktop */
-  flex-direction: column; 
-  /* justify-content: space-between; */
-  justify-content: flex-start;
+  justify-content: space-between;
   gap: 32px;
-
-  padding-top: 90px;
-  padding-left: 40px;
 }
 
 .nav-menu a {
@@ -61,40 +56,47 @@ body {
   font-size: 15px;
   line-height: 20px;
   color: #344563;
-  transition: all 0.2s ease-out;
 }
 
-.nav-menu a:hover {
-  color: #6070ff;
-  font-size: 17px;
-}
-
-
-.hamburger-list {
-  background-color: #6070ff94;
+.nav-menu .hamburger-list {
+  background-color: #6070ffe6;
   position: absolute;
   display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
+  padding-top: 90px;
   z-index: 5;
+}
+
+.hamburger-list li {
+  padding-left: 28px;
 }
 
 .hamburger-list a {
   color: #fff;
-  font-size: 24px;
+  font-size: 32px;
   font-weight: 600;
   line-height: 44px;
   text-decoration: none;
   transition: all 0.5s ease-in-out;
 }
 
+.hamburger-list li:hover {
+  background-color: #6070ff;
+}
+
+#hamburger-img {
+  z-index: 10;
+}
 
 /* Headline */
 .headline {
   background-color: #fff;
-  background-image: url("img/header-bg-mobile.png");
+  background-image: url('img/header-bg-mobile.png');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: top right;
@@ -107,7 +109,6 @@ body {
   gap: 12px;
   position: relative;
 }
-
 
 .headline h1 {
   font-size: 40px;
@@ -202,6 +203,7 @@ p {
 }
 
 .shape {
+  display: none;
   position: absolute;
   background-size: contain;
   background-position: top left;
@@ -232,7 +234,7 @@ p {
   left: 5%;
   width: 50px;
   height: 50px;
-  background-image: url("img/arc-blue.png");
+  background-image: url('img/arc-blue.png');
 }
 
 .float-anim {
@@ -518,7 +520,7 @@ p {
 
 .contact-form {
   background-color: #6070ff;
-  background-image: url("img/form-bg-mobile.png");
+  background-image: url('img/form-bg-mobile.png');
   background-position: top right;
   background-repeat: no-repeat;
   background-size: contain;
@@ -569,7 +571,7 @@ p {
 
 .contact-form input,
 textarea {
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 17px;
   line-height: 20px;
   width: 100%;
@@ -603,7 +605,7 @@ textarea::placeholder {
 
   /* Change headline */
   .headline {
-    background-image: url("img/header-bg-desktop.png");
+    background-image: url('img/header-bg-desktop.png');
     padding: 0 20% 0 20%; /* Exact padding on template is too much for medium screen */
   }
 
@@ -699,12 +701,16 @@ textarea::placeholder {
 
   /* Contact Form */
   .contact-form {
-    background-image: url("img/form-bg-desktop.png");
+    background-image: url('img/form-bg-desktop.png');
     padding-left: 30%;
     padding-right: 30%;
   }
 
   .contact-form li {
     justify-content: center;
+  }
+
+  .shape {
+    display: block;
   }
 }

@@ -14,10 +14,8 @@ function toggleMenu() {
 }
 
 hamburgerImg.addEventListener('click', toggleMenu);
-menuItems.forEach((item) =>
-  item.addEventListener('click', () => {
-    if (hamburgerMenu.classList.contains('hamburger-list')) {
-      toggleMenu();
-    }
-  })
-);
+menuItems.forEach((item) => item.addEventListener('click', () => {
+  if (hamburgerMenu.classList.contains('hamburger-list')) {
+    toggleMenu();
+  }
+}));

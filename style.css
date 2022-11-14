@@ -85,10 +85,6 @@ body {
   transition: all 0.5s ease-in-out;
 }
 
-.hamburger-list li:hover {
-  background-color: #6070ff;
-}
-
 #hamburger-img {
   z-index: 10;
 }

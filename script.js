@@ -1,10 +1,13 @@
 const hamburgerMenu = document.querySelector('#hamburger-menu');
-const hamburgerImg = document.querySelector('#hamburger-img');
+const menuButton = document.querySelector('#hamburger-btn');
 const menuItems = hamburgerMenu.querySelectorAll('a');
 const portfolioSection = document.querySelector('#portfolio');
+const popUpWindow = document.querySelector('#popup-window');
+const docBody = document.querySelector('body');
 
 let projectList = [
   {
+    id: 0,
     name: 'YouTube App',
     description:
       'A daily selection of privately personalized reads; no accounts or sign-ups required.',
@@ -15,6 +18,7 @@ let projectList = [
     source: '#',
   },
   {
+    id: 1,
     name: 'Rock Paper Scissors',
     description:
       'A daily selection of privately personalized reads; no accounts or sign-ups required.',
@@ -25,6 +29,7 @@ let projectList = [
     source: '#',
   },
   {
+    id: 2,
     name: 'Wordle Clone',
     description:
       'A daily selection of privately personalized reads; no accounts or sign-ups required.',
@@ -35,6 +40,7 @@ let projectList = [
     source: '#',
   },
   {
+    id: 3,
     name: 'Awesome Project',
     description:
       'A daily selection of privately personalized reads; no accounts or sign-ups required.',
@@ -87,6 +93,7 @@ function displayProjects(projectData) {
   seeButton.type = 'button';
   seeButton.classList.add('btn', 'see-project-btn');
   seeButton.innerText = 'See Project';
+  seeButton.id = projectData.id;
   // Appending elements to their parents
   const detailInfo = [name, infoList, description, techList, seeButton];
   for (let element of detailInfo) {
@@ -97,23 +104,50 @@ function displayProjects(projectData) {
   portfolioSection.appendChild(card);
 }
 
-for (let project of projectList) {
-  displayProjects(project);
-}
-
-// Toggle Menu Feature
 function toggleMenu() {
-  hamburgerMenu.classList.toggle('hamburger-list');
-  if (hamburgerImg.classList.contains('hamburger')) {
-    hamburgerImg.src = 'img/icons/close-icon.png';
-    hamburgerImg.classList.remove('hamburger');
+  hamburgerMenu.classList.toggle('display-menu');
+  docBody.classList.toggle('fixed');
+  if (menuButton.classList.contains('hamburger')) {
+    menuButton.src = 'img/icons/close-icon.png';
+    menuButton.classList.remove('hamburger');
   } else {
-    hamburgerImg.src = 'img/icons/hamburger.png';
-    hamburgerImg.classList.add('hamburger');
+    menuButton.src = 'img/icons/hamburger.png';
+    menuButton.classList.add('hamburger');
   }
 }
 
-hamburgerImg.addEventListener('click', toggleMenu);
+function showProjectDetail(projectId) {
+  const selectedProject = projectList[projectId];
+  popUpWindow.querySelector('h2').innerText = selectedProject.name;
+  popUpWindow.querySelector('.work-snapshot').src = selectedProject.feature_img;
+  popUpWindow.querySelector('.work-description').innerText =
+    selectedProject.description;
+  popUpWindow
+    .querySelector('#live-btn')
+    .setAttribute('href', selectedProject.live_demo);
+  popUpWindow
+    .querySelector('#src-btn')
+    .setAttribute('href', selectedProject.source);
+
+  // Project info list
+  const infoList = popUpWindow.querySelector('.work-info');
+  let nthChild = 1;
+  for (let data of selectedProject.info) {
+    infoList.querySelector(`:nth-child(${nthChild})`).innerText = data;
+    nthChild += 2;
+  }
+  // Tech list
+  const techList = popUpWindow.querySelector('.work-tags');
+  for (let i = 0; i < selectedProject.technologies.length; i++) {
+    techList.querySelector(`:nth-child(${i + 1})`).innerText =
+      selectedProject.technologies[i];
+  }
+
+  popUpWindow.classList.remove('hide');
+}
+
+// Toggle Menu Feature
+menuButton.addEventListener('click', toggleMenu);
 menuItems.forEach((item) =>
   item.addEventListener('click', () => {
     if (hamburgerMenu.classList.contains('hamburger-list')) {
@@ -121,3 +155,21 @@ menuItems.forEach((item) =>
     }
   })
 );
+
+// Dynamicall loading project section
+for (let project of projectList) {
+  displayProjects(project);
+}
+
+// Buttons for pop up window
+const projectButtons = document.querySelectorAll('.see-project-btn');
+
+projectButtons.forEach((btn) =>
+  btn.addEventListener('click', () => {
+    showProjectDetail(btn.id);
+  })
+);
+
+document.querySelector('#close-popup-btn').addEventListener('click', () => {
+  popUpWindow.classList.add('hide');
+});

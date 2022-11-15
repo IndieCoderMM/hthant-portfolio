@@ -41,7 +41,7 @@ body {
   height: 24px;
 }
 
-.nav-menu ul {
+.menu-list {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -50,7 +50,7 @@ body {
   gap: 32px;
 }
 
-.nav-menu a {
+.menu-list a {
   text-decoration: none;
   font-weight: 500;
   font-size: 15px;
@@ -58,8 +58,8 @@ body {
   color: #344563;
 }
 
-.nav-menu .hamburger-list {
-  background-color: #6070ffe6;
+.display-menu {
+  background-color: #6070ffb8;
   position: absolute;
   display: flex;
   flex-direction: column;
@@ -70,13 +70,15 @@ body {
   height: 100vh;
   padding-top: 90px;
   z-index: 5;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
 }
 
-.hamburger-list li {
+.display-menu li {
   padding-left: 28px;
 }
 
-.hamburger-list a {
+.display-menu a {
   color: #fff;
   font-size: 32px;
   font-weight: 600;
@@ -85,7 +87,7 @@ body {
   transition: all 0.5s ease-in-out;
 }
 
-#hamburger-img {
+#hamburger-btn {
   z-index: 10;
 }
 
@@ -588,6 +590,78 @@ textarea::placeholder {
   width: 140px;
 }
 
+/* Pop up window  */
+#popup-window {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(192, 192, 192, 0.746);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.popup-container {
+  padding: 16px;
+  height: 100%;
+  width: 80%;
+  margin: 0 auto 0 auto;
+  background-color: #fff;
+  border: solid 1px #dfe1e6;
+  border-radius: 16px;
+  z-index: 10;
+  overflow-y: auto;
+}
+
+.popup-container header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.popup-container > img {
+  margin-top: 20px;
+}
+
+.popup-container hr {
+  background-color: #aaa;
+  width: 90%;
+}
+
+.btn-group {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.btn-group a {
+  display: block;
+  text-decoration: none;
+  background-color: #fff;
+  color: #396df2;
+  border: solid 1px #6070ff;
+  border-radius: 8px;
+  font-size: 15px;
+  line-height: 20px;
+  padding: 14px;
+}
+
+#close-popup-btn {
+  cursor: pointer;
+  background-color: #fff;
+  border: none;
+  font-size: 1.7rem;
+}
+
+.hide {
+  display: none;
+}
+
+.fixed {
+  position: fixed;
+}
+
 /* Desktop version  */
 @media (min-width: 768px) {
   /* Remove hamburger and display nav links */
@@ -595,7 +669,7 @@ textarea::placeholder {
     display: none;
   }
 
-  .nav-menu ul {
+  .menu-list {
     display: flex;
   }
 

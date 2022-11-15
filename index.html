@@ -19,12 +19,12 @@
       <a href="#" class="logo">Hein Thant</a>
       <nav class="nav-menu">
         <img
-          id="hamburger-img"
+          id="hamburger-btn"
           class="hamburger"
           src="img/icons/hamburger.png"
           alt="hamburger-menu"
         />
-        <ul id="hamburger-menu">
+        <ul id="hamburger-menu" class="menu-list">
           <li><a href="#portfolio">Portfolio</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#contact">Contact</a></li>
@@ -89,6 +89,49 @@
     </section>
     <section class="works-page" id="portfolio">
       <!-- This section will load dynamically -->
+      <section id="popup-window" class="hide">
+        <div class="popup-container">
+          <header>
+            <h2>Awesome Project</h2>
+            <button id="close-popup-btn">&times</button>
+          </header>
+          <ul class="work-info">
+            <li class="author">Jimmy</li>
+            <li><span class="circle"></span></li>
+            <li>Front End Dev</li>
+            <li><span class="circle"></span></li>
+            <li>2022</li>
+          </ul>
+          <img
+            src="img/work-snapshot00.png"
+            alt="Webpage-snapshot"
+            class="work-snapshot"
+          />
+          <article class="work-detail">
+            <p class="work-description">
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been the industry's standard dummy text
+              ever since 1500s.
+            </p>
+            <ul class="work-tags">
+              <li>html</li>
+              <li>css</li>
+              <li>javaScript</li>
+            </ul>
+            <hr />
+            <div class="btn-group">
+              <a href="#" id="live-btn">
+                See Live
+                <img src="img/icons/see-live-icon.png" alt="see-live-icon" />
+              </a>
+              <a href="#" id="src-btn">
+                See Source
+                <img src="img/icons/github-blue.png" alt="github-icon" />
+              </a>
+            </div>
+        </div>
+        </article>
+      </section>
       <!-- <section class="work-card">
         <img
           src="img/work-snapshot00.png"

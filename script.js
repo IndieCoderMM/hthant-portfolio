@@ -5,30 +5,30 @@ const portfolioSection = document.querySelector('#portfolio');
 
 let projectList = [
   {
-    name: 'Awesome Project',
+    name: 'YouTube App',
     description:
       'A daily selection of privately personalized reads; no accounts or sign-ups required.',
-    feature_img: 'img/work-snapshot00.png',
+    feature_img: 'img/ss-yt-home.png',
     info: ['Jimmy', 'Front End Dev', '2021'],
     technologies: ['html', 'css', 'javascript'],
     live_demo: '#',
     source: '#',
   },
   {
-    name: 'Awesome Project',
+    name: 'Rock Paper Scissors',
     description:
       'A daily selection of privately personalized reads; no accounts or sign-ups required.',
-    feature_img: 'img/work-snapshot01.png',
+    feature_img: 'img/ss-rps-2.png',
     info: ['Jimmy', 'Front End Dev', '2019'],
     technologies: ['html', 'css', 'ruby'],
     live_demo: '#',
     source: '#',
   },
   {
-    name: 'Awesome Project',
+    name: 'Wordle Clone',
     description:
       'A daily selection of privately personalized reads; no accounts or sign-ups required.',
-    feature_img: 'img/work-snapshot02.png',
+    feature_img: 'img/ss-wdle-1.png',
     info: ['Jimmy', 'Front End Dev', '2020'],
     technologies: ['html', 'bootstrap', 'javascript'],
     live_demo: '#',
@@ -38,7 +38,7 @@ let projectList = [
     name: 'Awesome Project',
     description:
       'A daily selection of privately personalized reads; no accounts or sign-ups required.',
-    feature_img: 'img/work-snapshot03.png',
+    feature_img: 'img/work-snapshot00.png',
     info: ['Tom', 'Front End Dev', '2022'],
     technologies: ['html', 'css', 'javascript'],
     live_demo: '#',

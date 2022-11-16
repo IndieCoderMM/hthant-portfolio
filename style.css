@@ -669,6 +669,25 @@ textarea::placeholder {
   position: fixed;
 }
 
+#alert-box {
+  font-weight: 500;
+  border-radius: 2px;
+  padding: 0;
+  margin: 0;
+}
+
+.error-msg {
+  color: firebrick;
+  background-color: rgb(250, 177, 177);
+  border-left: solid 4px crimson;
+}
+
+.success-msg {
+  color: darkgreen;
+  background-color: rgb(188, 237, 220);
+  border-left: solid 4px greenyellow;
+}
+
 /* Desktop version  */
 @media (min-width: 768px) {
   /* Remove hamburger and display nav links */

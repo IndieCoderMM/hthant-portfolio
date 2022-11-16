@@ -26,19 +26,6 @@ p {
   font-weight: 500;
 }
 
-.social-icon {
-  width: 25px;
-  height: 25px;
-  padding: 3px;
-  transition: all 0.3s linear;
-}
-
-.social-icon:hover {
-  box-shadow: 1px 1px 5px #6070ff;
-  transform: scale(1.2);
-  border-radius: 3px;
-}
-
 .icon-holder {
   display: flex;
   align-items: center;
@@ -118,23 +105,24 @@ p {
   position: fixed;
 }
 
-.error-msg {
+#alert-box.error-msg {
   color: firebrick;
   background-color: rgb(250, 177, 177);
   border-left: solid 4px crimson;
+  padding: 2px 1px 2px 20px;
 }
 
-.success-msg {
+#alert-box.success-msg {
   color: darkgreen;
   background-color: rgb(188, 237, 220);
-  border-left: solid 4px greenyellow;
+  border-left: solid 4px lightseagreen;
+  padding: 2px 1px 2px 20px;
 }
 
 /* || Toolbar */
 .toolbar {
   display: flex;
   justify-content: space-between;
-  padding: 14px 24px 14px 24px;
   background-color: #fff;
 }
 
@@ -163,6 +151,7 @@ p {
   border: none;
   font-size: 24px;
   color: #6070ff;
+  cursor: pointer;
   transition: all 0.2s ease;
 }
 
@@ -570,8 +559,18 @@ textarea::placeholder {
   color: #b3bac5;
 }
 
+.contact-form input:focus,
+textarea:focus {
+  outline: none;
+  box-shadow: 1px 1px 5px 5px slateblue;
+}
+
 .contact-btn {
   width: 140px;
+}
+
+.contact-btn:hover {
+  border-color: #fff;
 }
 
 /* || Pop up window  */
@@ -714,6 +713,15 @@ textarea::placeholder {
 
 @media (min-width: 768px) {
   /* Remove hamburger and display nav links */
+  .toolbar {
+    position: fixed;
+    width: 100%;
+    height: 50px;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+
   #hamburger-btn {
     display: none;
   }
@@ -722,9 +730,17 @@ textarea::placeholder {
     display: flex;
   }
 
-  /* Change headline */
+  .menu-list li {
+    border-bottom: solid 3px #fff;
+  }
+
+  .menu-list li:hover {
+    border-color: #6070ff;
+  }
+
   .headline {
     background-image: url('img/header-bg-desktop.png');
+    margin-top: 50px;
     padding: 0 20% 0 20%;
   }
 

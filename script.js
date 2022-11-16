@@ -138,22 +138,23 @@ function displayProjects(projectData) {
 }
 
 function toggleMenu() {
-  hamburgerMenu.classList.toggle('display-menu');
+  hamburgerMenu.classList.toggle('mobile-menu');
   docBody.classList.toggle('fixed');
-  if (menuButton.classList.contains('hamburger')) {
-    menuButton.src = 'img/icons/close-icon.png';
-    menuButton.classList.remove('hamburger');
+  // Change icon to 'X'
+  if (!menuButton.classList.contains('close-icon')) {
+    menuButton.innerHTML = '<i class="fa-solid fa-xmark"></i>';
   } else {
-    menuButton.src = 'img/icons/hamburger.png';
-    menuButton.classList.add('hamburger');
+    menuButton.innerHTML = '<i class="fa-solid fa-bars"></i>';
   }
+  menuButton.classList.toggle('close-icon');
 }
 
 function showProjectDetail(projectId) {
   const selectedProject = projectList[projectId];
   popUpWindow.querySelector('h2').innerText = selectedProject.name;
   popUpWindow.querySelector('.work-snapshot').src = selectedProject.feature_img;
-  popUpWindow.querySelector('.work-description').innerText = selectedProject.description;
+  popUpWindow.querySelector('.work-description').innerText =
+    selectedProject.description;
   popUpWindow
     .querySelector('#live-btn')
     .setAttribute('href', selectedProject.live_demo);
@@ -179,11 +180,13 @@ function showProjectDetail(projectId) {
 
 // Toggle Menu Feature
 menuButton.addEventListener('click', toggleMenu);
-menuItems.forEach((item) => item.addEventListener('click', () => {
-  if (hamburgerMenu.classList.contains('display-menu')) {
-    toggleMenu();
-  }
-}));
+menuItems.forEach((item) =>
+  item.addEventListener('click', () => {
+    if (hamburgerMenu.classList.contains('mobile-menu')) {
+      toggleMenu();
+    }
+  })
+);
 
 // Dynamicall loading project section
 projectList.forEach((project) => displayProjects(project));
@@ -191,9 +194,11 @@ projectList.forEach((project) => displayProjects(project));
 // Buttons for pop up window
 const projectButtons = document.querySelectorAll('.see-project-btn');
 
-projectButtons.forEach((btn) => btn.addEventListener('click', () => {
-  showProjectDetail(btn.id);
-}));
+projectButtons.forEach((btn) =>
+  btn.addEventListener('click', () => {
+    showProjectDetail(btn.id);
+  })
+);
 
 document.querySelector('#close-popup-btn').addEventListener('click', () => {
   popUpWindow.classList.add('hide');

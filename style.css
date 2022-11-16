@@ -604,14 +604,13 @@ textarea::placeholder {
 
 .popup-container {
   padding: 16px;
-  height: 100%;
+  min-height: 90%;
   width: 80%;
-  margin: 0 auto 0 auto;
+  margin: 5% auto 0 auto;
   background-color: #fff;
   border: solid 1px #dfe1e6;
   border-radius: 16px;
   z-index: 10;
-  overflow-y: auto;
 }
 
 .popup-container header {

@@ -5,7 +5,7 @@ const portfolioSection = document.querySelector('#portfolio');
 const popUpWindow = document.querySelector('#popup-window');
 const docBody = document.querySelector('body');
 
-let projectList = [
+const projectList = [
   {
     id: 0,
     name: 'YouTube App',
@@ -60,7 +60,7 @@ let projectList = [
 
 function displayProjects(projectData) {
   const card = document.createElement('section');
-  const feature_img = document.createElement('img');
+  const featureImg = document.createElement('img');
   const detailSection = document.createElement('article');
   const name = document.createElement('h2');
   const infoList = document.createElement('ul');
@@ -69,14 +69,14 @@ function displayProjects(projectData) {
   const seeButton = document.createElement('button');
 
   card.classList.add('work-card');
-  feature_img.src = projectData.feature_img;
-  feature_img.classList.add('work-snapshot');
+  featureImg.src = projectData.feature_img;
+  featureImg.classList.add('work-snapshot');
   detailSection.classList.add('work-detail');
   name.innerText = projectData.name;
   infoList.classList.add('work-info');
   techList.classList.add('work-tags');
   // Project info list
-  for (let item of projectData.info) {
+  projectData.info.forEach((item) => {
     const listItem = document.createElement('li');
     if (!infoList.hasChildNodes()) {
       listItem.classList.add('author');
@@ -87,25 +87,26 @@ function displayProjects(projectData) {
     }
     listItem.innerText = item;
     infoList.appendChild(listItem);
-  }
+  });
   description.classList.add('work-description');
   description.innerText = projectData.description;
   // Technologies list
-  for (let item of projectData.technologies) {
+  projectData.technologies.forEach((item) => {
     const listItem = document.createElement('li');
     listItem.innerText = item;
     techList.appendChild(listItem);
-  }
+  });
+
   seeButton.type = 'button';
   seeButton.classList.add('btn', 'see-project-btn');
   seeButton.innerText = 'See Project';
   seeButton.id = projectData.id;
   // Appending elements to their parents
   const detailInfo = [name, infoList, description, techList, seeButton];
-  for (let element of detailInfo) {
+  detailInfo.forEach((element) => {
     detailSection.appendChild(element);
-  }
-  card.appendChild(feature_img);
+  });
+  card.appendChild(featureImg);
   card.appendChild(detailSection);
   portfolioSection.appendChild(card);
 }
@@ -126,8 +127,7 @@ function showProjectDetail(projectId) {
   const selectedProject = projectList[projectId];
   popUpWindow.querySelector('h2').innerText = selectedProject.name;
   popUpWindow.querySelector('.work-snapshot').src = selectedProject.feature_img;
-  popUpWindow.querySelector('.work-description').innerText =
-    selectedProject.description;
+  popUpWindow.querySelector('.work-description').innerText = selectedProject.description;
   popUpWindow
     .querySelector('#live-btn')
     .setAttribute('href', selectedProject.live_demo);
@@ -138,43 +138,36 @@ function showProjectDetail(projectId) {
   // Project info list
   const infoList = popUpWindow.querySelector('.work-info');
   let nthChild = 1;
-  for (let data of selectedProject.info) {
+  selectedProject.info.forEach((data) => {
     infoList.querySelector(`:nth-child(${nthChild})`).innerText = data;
     nthChild += 2;
-  }
+  });
   // Tech list
   const techList = popUpWindow.querySelector('.work-tags');
-  for (let i = 0; i < selectedProject.technologies.length; i++) {
-    techList.querySelector(`:nth-child(${i + 1})`).innerText =
-      selectedProject.technologies[i];
-  }
+  selectedProject.technologies.forEach((tech, index) => {
+    techList.querySelector(`:nth-child(${index + 1})`).innerText = tech;
+  });
 
   popUpWindow.classList.remove('hide');
 }
 
 // Toggle Menu Feature
 menuButton.addEventListener('click', toggleMenu);
-menuItems.forEach((item) =>
-  item.addEventListener('click', () => {
-    if (hamburgerMenu.classList.contains('display-menu')) {
-      toggleMenu();
-    }
-  })
-);
+menuItems.forEach((item) => item.addEventListener('click', () => {
+  if (hamburgerMenu.classList.contains('display-menu')) {
+    toggleMenu();
+  }
+}));
 
 // Dynamicall loading project section
-for (let project of projectList) {
-  displayProjects(project);
-}
+projectList.forEach((project) => displayProjects(project));
 
 // Buttons for pop up window
 const projectButtons = document.querySelectorAll('.see-project-btn');
 
-projectButtons.forEach((btn) =>
-  btn.addEventListener('click', () => {
-    showProjectDetail(btn.id);
-  })
-);
+projectButtons.forEach((btn) => btn.addEventListener('click', () => {
+  showProjectDetail(btn.id);
+}));
 
 document.querySelector('#close-popup-btn').addEventListener('click', () => {
   popUpWindow.classList.add('hide');

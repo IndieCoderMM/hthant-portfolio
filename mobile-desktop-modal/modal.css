@@ -37,7 +37,6 @@
 
 .work-detail h2 {
   font-weight: 700;
-  font-weight: 700;
   font-size: 32px;
   line-height: 44px;
   color: #172b4d;
@@ -164,7 +163,7 @@
   margin: 20px 0;
 }
 
-@media screen and (min-width: 768px) { 
+@media screen and (min-width: 768px) {
   .text-container {
     display: flex;
     flex-direction: row;
@@ -179,6 +178,5 @@
   .see-project-btn {
     font-size: 15px;
     width: 150px;
-    }
-
+  }
 }

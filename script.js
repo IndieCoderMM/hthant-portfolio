@@ -5,19 +5,18 @@ const portfolioSection = document.querySelector('#portfolio');
 const popUpWindow = document.querySelector('#popup-window');
 const docBody = document.querySelector('body');
 const form = document.querySelector('.contact-form');
-const nameInput = document.querySelector('#email');
+const mailInput = document.querySelector('#email');
 const errorMessage = document.querySelector('#error-message');
-
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
-  if (nameInput.value !== "^[a-z0-9_\-]+$") {
-    errorMessage.textContent = 'Please enter email in lowercase';
+  if (mailInput.value !== mailInput.value.toLowerCase()) {
+    errorMessage.textContent = 'Please enter email in all lowercase!';
   } else {
-    errorMessage.textContent = 'thank you for your message';
+    errorMessage.textContent = '';
+    form.submit();
   }
-  });
-
+});
 
 const projectList = [
   {
@@ -186,4 +185,3 @@ projectButtons.forEach((btn) => btn.addEventListener('click', () => {
 document.querySelector('#close-popup-btn').addEventListener('click', () => {
   popUpWindow.classList.add('hide');
 });
-

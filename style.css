@@ -597,6 +597,8 @@ textarea::placeholder {
   bottom: 0;
   left: 0;
   right: 0;
+  z-index: 20;
+
   background-color: rgba(192, 192, 192, 0.746);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
@@ -604,13 +606,13 @@ textarea::placeholder {
 
 .popup-container {
   padding: 16px;
-  min-height: 90%;
+  height: 90%;
   width: 80%;
   margin: 5% auto 0 auto;
   background-color: #fff;
   border: solid 1px #dfe1e6;
   border-radius: 16px;
-  z-index: 10;
+  overflow-y: scroll;
 }
 
 .popup-container header {
@@ -619,7 +621,7 @@ textarea::placeholder {
   justify-content: space-between;
 }
 
-.popup-container > img {
+.popup-container .work-snapshot {
   margin-top: 20px;
 }
 
@@ -644,7 +646,14 @@ textarea::placeholder {
   font-size: 15px;
   line-height: 20px;
   padding: 14px;
+  text-align: center;
 }
+
+/* .btn-group a:hover {
+  background-color: #6070ff;
+  color: #fff;
+  box-shadow: 0 8px 16px rgba(64, 83, 252, 0.24);
+} */
 
 #close-popup-btn {
   cursor: pointer;
@@ -707,8 +716,9 @@ textarea::placeholder {
   }
 
   .work-snapshot {
-    max-width: 55%;
-    height: auto;
+    object-fit: contain;
+    width: 55%;
+    background-color: #ddd;
   }
 
   .work-detail {
@@ -781,5 +791,32 @@ textarea::placeholder {
 
   .shape {
     display: block;
+  }
+
+  /* Desktop popup window  */
+  .popup-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2%;
+  }
+
+  .popup-container .work-snapshot {
+    width: 100%;
+  }
+
+  .popup-container hr {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  #popup-window .work-detail {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    margin: 20px 0;
+  }
+
+  .btn-group a {
+    min-width: 140px;
   }
 }

@@ -10,43 +10,49 @@ let projectList = [
     id: 0,
     name: 'YouTube App',
     description:
-      'A daily selection of privately personalized reads; no accounts or sign-ups required.',
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius deleniti sed, tenetur mollitia nisi perferendis eveniet at veniam sapiente? Quibusdam similique error repellat fugiat debitis quia cumque est illo dicta.',
     feature_img: 'img/ss-yt-home.png',
     info: ['Jimmy', 'Front End Dev', '2021'],
     technologies: ['html', 'css', 'javascript'],
-    live_demo: '#',
-    source: '#',
+    live_demo:
+      'https://indiecodermm.github.io/modern-websites/youtube/index.html',
+    source:
+      'https://github.com/IndieCoderMM/modern-websites/tree/master/youtube',
   },
   {
     id: 1,
     name: 'Rock Paper Scissors',
     description:
-      'A daily selection of privately personalized reads; no accounts or sign-ups required.',
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius deleniti sed, tenetur mollitia nisi perferendis eveniet at veniam sapiente? Quibusdam similique error repellat fugiat debitis quia cumque est illo dicta.',
     feature_img: 'img/ss-rps-2.png',
-    info: ['Jimmy', 'Front End Dev', '2019'],
-    technologies: ['html', 'css', 'ruby'],
-    live_demo: '#',
-    source: '#',
+    info: ['Jimmy', 'Front End Dev', '2020'],
+    technologies: ['html', 'css', 'javascript'],
+    live_demo:
+      'https://indiecodermm.github.io/modern-websites/rock-paper-scissor/index.html',
+    source:
+      'https://github.com/IndieCoderMM/modern-websites/tree/master/rock-paper-scissor',
   },
   {
     id: 2,
     name: 'Wordle Clone',
     description:
-      'A daily selection of privately personalized reads; no accounts or sign-ups required.',
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius deleniti sed, tenetur mollitia nisi perferendis eveniet at veniam sapiente? Quibusdam similique error repellat fugiat debitis quia cumque est illo dicta.',
     feature_img: 'img/ss-wdle-1.png',
-    info: ['Jimmy', 'Front End Dev', '2020'],
-    technologies: ['html', 'bootstrap', 'javascript'],
-    live_demo: '#',
-    source: '#',
+    info: ['Jimmy', 'Front End Dev', '2022'],
+    technologies: ['html', 'css', 'javascript'],
+    live_demo:
+      'https://indiecodermm.github.io/modern-websites/wordle/index.html',
+    source:
+      'https://github.com/IndieCoderMM/modern-websites/tree/master/wordle',
   },
   {
     id: 3,
     name: 'Awesome Project',
     description:
-      'A daily selection of privately personalized reads; no accounts or sign-ups required.',
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius deleniti sed, perferendis eveniet at veniam sapiente? Quibusdam similique error repellat fugiat debitis quia cumque est illo dicta.',
     feature_img: 'img/work-snapshot00.png',
-    info: ['Tom', 'Front End Dev', '2022'],
-    technologies: ['html', 'css', 'javascript'],
+    info: ['Tom', 'Back End Dev', '2022'],
+    technologies: ['html', 'bootstrap', 'ruby'],
     live_demo: '#',
     source: '#',
   },
@@ -150,7 +156,7 @@ function showProjectDetail(projectId) {
 menuButton.addEventListener('click', toggleMenu);
 menuItems.forEach((item) =>
   item.addEventListener('click', () => {
-    if (hamburgerMenu.classList.contains('hamburger-list')) {
+    if (hamburgerMenu.classList.contains('display-menu')) {
       toggleMenu();
     }
   })

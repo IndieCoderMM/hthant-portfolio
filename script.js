@@ -9,32 +9,12 @@ const nameInput = document.querySelector('#name');
 const mailInput = document.querySelector('#email');
 const messageInput = document.querySelector('#message');
 const alertBox = document.querySelector('#alert-box');
-const contactForm = document.querySelector('.contact-btn')
 
-form.addEventListener('submit', (e) => {
-  e.preventDefault();
-
-  nameInput.value = nameInput.value.trim();
-  mailInput.value = mailInput.value.trim();
-  messageInput.value = messageInput.value.trim();
-
-  alertBox.classList.add('error-msg');
-
-  if (nameInput.length === 0) {
-    nameInput.value = '';
-    alertBox.textContent = 'Please let me know your name!';
-  } else if (mailInput.value !== mailInput.value.toLowerCase()) {
-    alertBox.textContent = 'Please use lowercase letters for email!';
-  } else if (messageInput.length === 0) {
-    messageInput.value = '';
-    alertBox.textContent = 'Please write something in message box!';
-  } else {
-    alertBox.classList.remove('error-msg');
-    alertBox.classList.add('success-msg');
-    alertBox.textContent = 'Thanks for reaching out to me!';
-    form.submit();
-  }
-});
+const FORM_KEY = 'FormData';
+const EMPTY_NAME = 'Please let me know your name!';
+const MAIL_LOWER = 'Please use lowercase letters for email!';
+const EMPTY_TEXT = 'Please write something in message box!';
+const VALID_FORM = 'Thanks for reaching out to me!';
 
 const projectList = [
   {
@@ -145,7 +125,8 @@ function showProjectDetail(projectId) {
   popUpWindow
     .querySelector('.work-snapshot')
     .setAttribute('src', selectedProject.feature_img);
-  popUpWindow.querySelector('.work-description').innerText = selectedProject.description;
+  popUpWindow.querySelector('.work-description').innerText =
+    selectedProject.description;
   popUpWindow
     .querySelector('#live-btn')
     .setAttribute('href', selectedProject.live_demo);
@@ -177,42 +158,88 @@ function toggleMenu() {
   menuButton.classList.toggle('close-icon');
 }
 
-// Toggle Menu Feature
-menuButton.addEventListener('click', toggleMenu);
-menuItems.forEach((item) => item.addEventListener('click', () => {
-  if (hamburgerMenu.classList.contains('mobile-menu')) {
-    toggleMenu();
+function saveFormData() {
+  const data = {
+    name: nameInput.value,
+    email: mailInput.value,
+    message: messageInput.value,
+  };
+  localStorage.setItem(FORM_KEY, JSON.stringify(data));
+  console.log('Data saved!');
+}
+
+function prefillForm() {
+  if (!localStorage.hasOwnProperty(FORM_KEY)) return;
+  const formData = JSON.parse(localStorage.getItem(FORM_KEY));
+  nameInput.value = formData.name;
+  mailInput.value = formData.email;
+  messageInput.value = formData.message;
+}
+
+function validateForm() {
+  nameInput.value = nameInput.value.trim();
+  mailInput.value = mailInput.value.trim();
+  messageInput.value = messageInput.value.trim();
+
+  if (nameInput.value.length === 0) {
+    return EMPTY_NAME;
+  } else if (mailInput.value !== mailInput.value.toLowerCase()) {
+    return MAIL_LOWER;
+  } else if (messageInput.value.length === 0) {
+    return EMPTY_TEXT;
   }
-}));
+  return VALID_FORM;
+}
+
+// Prefill form on load
+
+prefillForm();
+
+// Save on change event
+
+form.addEventListener('change', saveFormData);
+
+// Form validation
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const status = validateForm();
+  alertBox.textContent = status;
+
+  if (status !== VALID_FORM) {
+    alertBox.classList.add('error-msg');
+    alertBox.classList.remove('success-msg');
+    return;
+  }
+  alertBox.classList.add('success-msg');
+  alertBox.classList.remove('error-msg');
+  form.submit();
+  form.reset();
+});
+
+// Toggle Menu Feature
+
+menuButton.addEventListener('click', toggleMenu);
+menuItems.forEach((item) =>
+  item.addEventListener('click', () => {
+    if (hamburgerMenu.classList.contains('mobile-menu')) {
+      toggleMenu();
+    }
+  })
+);
 
 // Dynamicall loading project section
+
 projectList.forEach((project) => displayProjects(project));
 
 // Buttons for pop up window
-const projectButtons = document.querySelectorAll('.see-project-btn');
-projectButtons.forEach((btn) => btn.addEventListener('click', () => {
-  showProjectDetail(btn.id);
-}));
+
+document.querySelectorAll('.see-project-btn').forEach((btn) =>
+  btn.addEventListener('click', () => {
+    showProjectDetail(btn.id);
+  })
+);
 
 document.querySelector('#close-popup-btn').addEventListener('click', () => {
   popUpWindow.classList.add('hide');
 });
-
-let formList = [];
-
-const formData = (e)=>{
-  e.preventDefault();
-  let form = {
-    id: Date.now(),
-    name: document.querySelector('#name').value,
-    email: document.querySelector('#email').value,
-    message: document.querySelector('#message').value
-  }
-
-  formList.push(form);
-  document.forms[0].reset();
-
-  localStorage.setItem('Form-LIst', JSON.stringify(formList));
-}
-
-contactForm.addEventListener('submit', (formData));

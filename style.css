@@ -639,6 +639,7 @@ textarea:focus {
 }
 
 /* || Animations */
+
 /* Bouncing text animation  */
 .headline h1 span:nth-child(2) {
   animation-delay: 1.1s;
@@ -670,6 +671,7 @@ textarea:focus {
   100% {
     transform: translateY(0);
   }
+
   20% {
     transform: translateY(-20px);
     text-shadow: 0 10px 15px #bbb;
@@ -692,6 +694,7 @@ textarea:focus {
     box-shadow: 0 8px 10px rgba(0, 0, 0, 0.5);
     transform: translateY(0);
   }
+
   50% {
     box-shadow: 0 15px 10px rgba(0, 0, 0, 0.2);
     transform: translateY(-10px);
@@ -711,6 +714,7 @@ textarea:focus {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
@@ -739,10 +743,6 @@ textarea:focus {
 
   .menu-list li {
     border-bottom: solid 3px #fff;
-  }
-
-  .menu-list li:hover {
-    border-color: #6070ff;
   }
 
   .headline {
@@ -855,6 +855,10 @@ textarea:focus {
 
   .shape {
     display: block;
+  }
+
+  .menu-list li:hover {
+    border-color: #6070ff;
   }
 
   /* Desktop popup window  */

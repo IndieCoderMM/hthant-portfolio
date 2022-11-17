@@ -10,22 +10,26 @@ const mailInput = document.querySelector('#email');
 const messageInput = document.querySelector('#message');
 const alertBox = document.querySelector('#alert-box');
 
-const isEmpty = (input) => input.value.trim().length === 0;
-
 form.addEventListener('submit', (e) => {
   e.preventDefault();
+
+  nameInput.value = nameInput.value.trim();
+  mailInput.value = mailInput.value.trim();
+  messageInput.value = messageInput.value.trim();
+
   alertBox.classList.add('error-msg');
-  if (isEmpty(nameInput)) {
+
+  if (nameInput.length === 0) {
     nameInput.value = '';
     alertBox.textContent = 'Please let me know your name!';
   } else if (mailInput.value !== mailInput.value.toLowerCase()) {
     alertBox.textContent = 'Please use lowercase letters for email!';
-  } else if (isEmpty(messageInput)) {
+  } else if (messageInput.length === 0) {
     messageInput.value = '';
     alertBox.textContent = 'Please write something in message box!';
   } else {
-    alertBox.classList.add('success-msg');
     alertBox.classList.remove('error-msg');
+    alertBox.classList.add('success-msg');
     alertBox.textContent = 'Thanks for reaching out to me!';
     form.submit();
   }
@@ -95,7 +99,7 @@ function displayProjects(projectData) {
   const seeButton = document.createElement('button');
 
   card.classList.add('work-card');
-  featureImg.src = projectData.feature_img;
+  featureImg.setAttribute('src', projectData.feature_img);
   featureImg.classList.add('work-snapshot');
   detailSection.classList.add('work-detail');
   name.innerText = projectData.name;
@@ -106,10 +110,6 @@ function displayProjects(projectData) {
     const listItem = document.createElement('li');
     if (!infoList.hasChildNodes()) {
       listItem.classList.add('author');
-    } else {
-      const dotShape = document.createElement('li');
-      dotShape.innerHTML = '<span class="circle"></span>';
-      infoList.appendChild(dotShape);
     }
     listItem.innerText = item;
     infoList.appendChild(listItem);
@@ -122,12 +122,12 @@ function displayProjects(projectData) {
     listItem.innerText = item;
     techList.appendChild(listItem);
   });
-
+  // Popup button
   seeButton.type = 'button';
   seeButton.classList.add('btn', 'see-project-btn');
   seeButton.innerText = 'See Project';
   seeButton.id = projectData.id;
-  // Appending elements to their parents
+  // Appending all elements to their parents
   const detailInfo = [name, infoList, description, techList, seeButton];
   detailInfo.forEach((element) => {
     detailSection.appendChild(element);
@@ -137,22 +137,13 @@ function displayProjects(projectData) {
   portfolioSection.appendChild(card);
 }
 
-function toggleMenu() {
-  hamburgerMenu.classList.toggle('display-menu');
-  docBody.classList.toggle('fixed');
-  if (menuButton.classList.contains('hamburger')) {
-    menuButton.src = 'img/icons/close-icon.png';
-    menuButton.classList.remove('hamburger');
-  } else {
-    menuButton.src = 'img/icons/hamburger.png';
-    menuButton.classList.add('hamburger');
-  }
-}
-
 function showProjectDetail(projectId) {
   const selectedProject = projectList[projectId];
+  popUpWindow.classList.remove('hide');
   popUpWindow.querySelector('h2').innerText = selectedProject.name;
-  popUpWindow.querySelector('.work-snapshot').src = selectedProject.feature_img;
+  popUpWindow
+    .querySelector('.work-snapshot')
+    .setAttribute('src', selectedProject.feature_img);
   popUpWindow.querySelector('.work-description').innerText = selectedProject.description;
   popUpWindow
     .querySelector('#live-btn')
@@ -163,24 +154,32 @@ function showProjectDetail(projectId) {
 
   // Project info list
   const infoList = popUpWindow.querySelector('.work-info');
-  let nthChild = 1;
-  selectedProject.info.forEach((data) => {
-    infoList.querySelector(`:nth-child(${nthChild})`).innerText = data;
-    nthChild += 2;
+  selectedProject.info.forEach((data, index) => {
+    infoList.querySelector(`:nth-child(${index + 1})`).innerText = data;
   });
   // Tech list
   const techList = popUpWindow.querySelector('.work-tags');
   selectedProject.technologies.forEach((tech, index) => {
     techList.querySelector(`:nth-child(${index + 1})`).innerText = tech;
   });
+}
 
-  popUpWindow.classList.remove('hide');
+function toggleMenu() {
+  hamburgerMenu.classList.toggle('mobile-menu');
+  docBody.classList.toggle('fixed');
+  // Change icon to 'X'
+  if (!menuButton.classList.contains('close-icon')) {
+    menuButton.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+  } else {
+    menuButton.innerHTML = '<i class="fa-solid fa-bars"></i>';
+  }
+  menuButton.classList.toggle('close-icon');
 }
 
 // Toggle Menu Feature
 menuButton.addEventListener('click', toggleMenu);
 menuItems.forEach((item) => item.addEventListener('click', () => {
-  if (hamburgerMenu.classList.contains('display-menu')) {
+  if (hamburgerMenu.classList.contains('mobile-menu')) {
     toggleMenu();
   }
 }));
@@ -190,7 +189,6 @@ projectList.forEach((project) => displayProjects(project));
 
 // Buttons for pop up window
 const projectButtons = document.querySelectorAll('.see-project-btn');
-
 projectButtons.forEach((btn) => btn.addEventListener('click', () => {
   showProjectDetail(btn.id);
 }));

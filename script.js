@@ -9,6 +9,7 @@ const nameInput = document.querySelector('#name');
 const mailInput = document.querySelector('#email');
 const messageInput = document.querySelector('#message');
 const alertBox = document.querySelector('#alert-box');
+const contactForm = document.querySelector('.contact-btn')
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -196,3 +197,22 @@ projectButtons.forEach((btn) => btn.addEventListener('click', () => {
 document.querySelector('#close-popup-btn').addEventListener('click', () => {
   popUpWindow.classList.add('hide');
 });
+
+let formList = [];
+
+const formData = (e)=>{
+  e.preventDefault();
+  let form = {
+    id: Date.now(),
+    name: document.querySelector('#name').value,
+    email: document.querySelector('#email').value,
+    message: document.querySelector('#message').value
+  }
+
+  formList.push(form);
+  document.forms[0].reset();
+
+  localStorage.setItem('Form-LIst', JSON.stringify(formList));
+}
+
+contactForm.addEventListener('submit', (formData));

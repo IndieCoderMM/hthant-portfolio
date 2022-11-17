@@ -125,8 +125,7 @@ function showProjectDetail(projectId) {
   popUpWindow
     .querySelector('.work-snapshot')
     .setAttribute('src', selectedProject.feature_img);
-  popUpWindow.querySelector('.work-description').innerText =
-    selectedProject.description;
+  popUpWindow.querySelector('.work-description').innerText = selectedProject.description;
   popUpWindow
     .querySelector('#live-btn')
     .setAttribute('href', selectedProject.live_demo);
@@ -165,11 +164,10 @@ function saveFormData() {
     message: messageInput.value,
   };
   localStorage.setItem(FORM_KEY, JSON.stringify(data));
-  console.log('Data saved!');
 }
 
 function prefillForm() {
-  if (!localStorage.hasOwnProperty(FORM_KEY)) return;
+  if (localStorage.getItem(FORM_KEY) === null) return;
   const formData = JSON.parse(localStorage.getItem(FORM_KEY));
   nameInput.value = formData.name;
   mailInput.value = formData.email;
@@ -183,9 +181,11 @@ function validateForm() {
 
   if (nameInput.value.length === 0) {
     return EMPTY_NAME;
-  } else if (mailInput.value !== mailInput.value.toLowerCase()) {
+  }
+  if (mailInput.value !== mailInput.value.toLowerCase()) {
     return MAIL_LOWER;
-  } else if (messageInput.value.length === 0) {
+  }
+  if (messageInput.value.length === 0) {
     return EMPTY_TEXT;
   }
   return VALID_FORM;
@@ -220,13 +220,11 @@ form.addEventListener('submit', (e) => {
 // Toggle Menu Feature
 
 menuButton.addEventListener('click', toggleMenu);
-menuItems.forEach((item) =>
-  item.addEventListener('click', () => {
-    if (hamburgerMenu.classList.contains('mobile-menu')) {
-      toggleMenu();
-    }
-  })
-);
+menuItems.forEach((item) => item.addEventListener('click', () => {
+  if (hamburgerMenu.classList.contains('mobile-menu')) {
+    toggleMenu();
+  }
+}));
 
 // Dynamicall loading project section
 
@@ -234,11 +232,9 @@ projectList.forEach((project) => displayProjects(project));
 
 // Buttons for pop up window
 
-document.querySelectorAll('.see-project-btn').forEach((btn) =>
-  btn.addEventListener('click', () => {
-    showProjectDetail(btn.id);
-  })
-);
+document.querySelectorAll('.see-project-btn').forEach((btn) => btn.addEventListener('click', () => {
+  showProjectDetail(btn.id);
+}));
 
 document.querySelector('#close-popup-btn').addEventListener('click', () => {
   popUpWindow.classList.add('hide');

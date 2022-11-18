@@ -144,7 +144,8 @@ function showProjectDetail(projectId) {
   popUpWindow
     .querySelector('.work-snapshot')
     .setAttribute('src', selectedProject.feature_img);
-  popUpWindow.querySelector('.work-description').innerText = selectedProject.description;
+  popUpWindow.querySelector('.work-description').innerText =
+    selectedProject.description;
   popUpWindow
     .querySelector('#live-btn')
     .setAttribute('href', selectedProject.live_demo);
@@ -178,20 +179,24 @@ function toggleMenu() {
 
 // Toggle Menu Feature
 menuButton.addEventListener('click', toggleMenu);
-menuItems.forEach((item) => item.addEventListener('click', () => {
-  if (hamburgerMenu.classList.contains('mobile-menu')) {
-    toggleMenu();
-  }
-}));
+menuItems.forEach((item) =>
+  item.addEventListener('click', () => {
+    if (hamburgerMenu.classList.contains('mobile-menu')) {
+      toggleMenu();
+    }
+  })
+);
 
 // Dynamicall loading project section
-projectList.forEach((project) => displayProjects(project));
+projectList.forEach((project) => displayProjects(projectList));
 
 // Buttons for pop up window
 const projectButtons = document.querySelectorAll('.see-project-btn');
-projectButtons.forEach((btn) => btn.addEventListener('click', () => {
-  showProjectDetail(btn.id);
-}));
+projectButtons.forEach((btn) =>
+  btn.addEventListener('click', () => {
+    showProjectDetail(btn.id);
+  })
+);
 
 document.querySelector('#close-popup-btn').addEventListener('click', () => {
   popUpWindow.classList.add('hide');

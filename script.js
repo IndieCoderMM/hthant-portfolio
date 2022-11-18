@@ -1,6 +1,5 @@
 const hamburgerMenu = document.querySelector('#hamburger-menu');
 const menuButton = document.querySelector('#hamburger-btn');
-const menuItems = hamburgerMenu.querySelectorAll('a');
 const portfolioSection = document.querySelector('#portfolio');
 const popUpWindow = document.querySelector('#popup-window');
 const docBody = document.querySelector('body');
@@ -125,7 +124,8 @@ function showProjectDetail(projectId) {
   popUpWindow
     .querySelector('.work-snapshot')
     .setAttribute('src', selectedProject.feature_img);
-  popUpWindow.querySelector('.work-description').innerText = selectedProject.description;
+  popUpWindow.querySelector('.work-description').innerText =
+    selectedProject.description;
   popUpWindow
     .querySelector('#live-btn')
     .setAttribute('href', selectedProject.live_demo);
@@ -191,6 +191,8 @@ function validateForm() {
   return VALID_FORM;
 }
 
+// --------------- Main Code ----------------------------
+
 // Prefill form on load
 
 prefillForm();
@@ -220,11 +222,13 @@ form.addEventListener('submit', (e) => {
 // Toggle Menu Feature
 
 menuButton.addEventListener('click', toggleMenu);
-menuItems.forEach((item) => item.addEventListener('click', () => {
-  if (hamburgerMenu.classList.contains('mobile-menu')) {
-    toggleMenu();
-  }
-}));
+hamburgerMenu.querySelectorAll('a').forEach((item) =>
+  item.addEventListener('click', () => {
+    if (hamburgerMenu.classList.contains('mobile-menu')) {
+      toggleMenu();
+    }
+  })
+);
 
 // Dynamicall loading project section
 
@@ -232,9 +236,11 @@ projectList.forEach((project) => displayProjects(project));
 
 // Buttons for pop up window
 
-document.querySelectorAll('.see-project-btn').forEach((btn) => btn.addEventListener('click', () => {
-  showProjectDetail(btn.id);
-}));
+document.querySelectorAll('.see-project-btn').forEach((btn) =>
+  btn.addEventListener('click', () => {
+    showProjectDetail(btn.id);
+  })
+);
 
 document.querySelector('#close-popup-btn').addEventListener('click', () => {
   popUpWindow.classList.add('hide');

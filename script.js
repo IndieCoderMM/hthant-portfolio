@@ -1,6 +1,5 @@
 const hamburgerMenu = document.querySelector('#hamburger-menu');
 const menuButton = document.querySelector('#hamburger-btn');
-const menuItems = hamburgerMenu.querySelectorAll('a');
 const portfolioSection = document.querySelector('#portfolio');
 const popUpWindow = document.querySelector('#popup-window');
 const docBody = document.querySelector('body');
@@ -10,30 +9,11 @@ const mailInput = document.querySelector('#email');
 const messageInput = document.querySelector('#message');
 const alertBox = document.querySelector('#alert-box');
 
-form.addEventListener('submit', (e) => {
-  e.preventDefault();
-
-  nameInput.value = nameInput.value.trim();
-  mailInput.value = mailInput.value.trim();
-  messageInput.value = messageInput.value.trim();
-
-  alertBox.classList.add('error-msg');
-
-  if (nameInput.length === 0) {
-    nameInput.value = '';
-    alertBox.textContent = 'Please let me know your name!';
-  } else if (mailInput.value !== mailInput.value.toLowerCase()) {
-    alertBox.textContent = 'Please use lowercase letters for email!';
-  } else if (messageInput.length === 0) {
-    messageInput.value = '';
-    alertBox.textContent = 'Please write something in message box!';
-  } else {
-    alertBox.classList.remove('error-msg');
-    alertBox.classList.add('success-msg');
-    alertBox.textContent = 'Thanks for reaching out to me!';
-    form.submit();
-  }
-});
+const FORM_KEY = 'FormData';
+const EMPTY_NAME = 'Please let me know your name!';
+const MAIL_LOWER = 'Please use lowercase letters for email!';
+const EMPTY_TEXT = 'Please write something in message box!';
+const VALID_FORM = 'Thanks for reaching out to me!';
 
 const projectList = [
   {
@@ -176,20 +156,84 @@ function toggleMenu() {
   menuButton.classList.toggle('close-icon');
 }
 
+function saveFormData() {
+  const data = {
+    name: nameInput.value,
+    email: mailInput.value,
+    message: messageInput.value,
+  };
+  localStorage.setItem(FORM_KEY, JSON.stringify(data));
+}
+
+function prefillForm() {
+  if (localStorage.getItem(FORM_KEY) === null) return;
+  const formData = JSON.parse(localStorage.getItem(FORM_KEY));
+  nameInput.value = formData.name;
+  mailInput.value = formData.email;
+  messageInput.value = formData.message;
+}
+
+function validateForm() {
+  nameInput.value = nameInput.value.trim();
+  mailInput.value = mailInput.value.trim();
+  messageInput.value = messageInput.value.trim();
+
+  if (nameInput.value.length === 0) {
+    return EMPTY_NAME;
+  }
+  if (mailInput.value !== mailInput.value.toLowerCase()) {
+    return MAIL_LOWER;
+  }
+  if (messageInput.value.length === 0) {
+    return EMPTY_TEXT;
+  }
+  return VALID_FORM;
+}
+
+// --------------- Main Code ----------------------------
+
+// Prefill form on load
+
+prefillForm();
+
+// Save on change event
+
+form.addEventListener('change', saveFormData);
+
+// Form validation
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const status = validateForm();
+  alertBox.textContent = status;
+
+  if (status !== VALID_FORM) {
+    alertBox.classList.add('error-msg');
+    alertBox.classList.remove('success-msg');
+    return;
+  }
+  alertBox.classList.add('success-msg');
+  alertBox.classList.remove('error-msg');
+  form.submit();
+  form.reset();
+});
+
 // Toggle Menu Feature
+
 menuButton.addEventListener('click', toggleMenu);
-menuItems.forEach((item) => item.addEventListener('click', () => {
+hamburgerMenu.querySelectorAll('a').forEach((item) => item.addEventListener('click', () => {
   if (hamburgerMenu.classList.contains('mobile-menu')) {
     toggleMenu();
   }
 }));
 
 // Dynamicall loading project section
+
 projectList.forEach((project) => displayProjects(project));
 
 // Buttons for pop up window
-const projectButtons = document.querySelectorAll('.see-project-btn');
-projectButtons.forEach((btn) => btn.addEventListener('click', () => {
+
+document.querySelectorAll('.see-project-btn').forEach((btn) => btn.addEventListener('click', () => {
   showProjectDetail(btn.id);
 }));
 

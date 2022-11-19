@@ -73,7 +73,7 @@ git clone git@github.com:IndieCoderMM/hthant-portfolio.git
 :man_astronaut: **IndieCoderMM**
 
 - GitHub: [@IndieCoderMM](https://github.com/IndieCoderMM)
-- Twitter: [@OoHeinth](https://twitter.com/OoHeinth)
+- Twitter: [@heinThantO](https://twitter.com/heinThantO)
 - LinkedIn: [hthantoo](https://www.linkedin.com/in/hthantoo)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

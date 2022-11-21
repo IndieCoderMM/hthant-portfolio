@@ -187,7 +187,7 @@ menuItems.forEach((item) =>
   })
 );
 
-// Dynamicall loading project section
+// Dynamically loading project section
 projectList.forEach((project) => displayProjects(projectList));
 
 // Buttons for pop up window

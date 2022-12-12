@@ -17,12 +17,23 @@ const VALID_FORM = 'Thanks for reaching out to me!';
 
 const projectList = [
   {
-    id: 0,
-    name: 'YouTube App',
+    id: 3,
+    name: 'Chess Event Website',
     description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius deleniti sed, tenetur mollitia nisi perferendis eveniet at veniam sapiente? Quibusdam similique error repellat fugiat debitis quia cumque est illo dicta.',
-    feature_img: 'img/ss-yt-home.png',
-    info: ['Jimmy', 'Front End Dev', '2021'],
+      'A website for a chess tournament where people can learn more info about the event, see the featured players, and join the event.',
+    feature_img: 'img/screenshots/chess_event_site.png',
+    info: ['Microverse', 'Mod1', 'Capstone'],
+    technologies: ['html', 'css', 'javascript', 'bootstrap'],
+    live_demo: 'https://indiecodermm.github.io/chessevent-site/',
+    source: 'https://github.com/IndieCoderMM/chessevent-site',
+  },
+  {
+    id: 0,
+    name: 'YouTube',
+    description:
+      'A YouTube clone with redesigned UI, created during the Microverse pre-enrollment bootcamp.',
+    feature_img: 'img/screenshots/ss-yt-home.png',
+    info: ['Personal', 'Front End', '2022'],
     technologies: ['html', 'css', 'javascript'],
     live_demo:
       'https://indiecodermm.github.io/modern-websites/youtube/index.html',
@@ -33,9 +44,9 @@ const projectList = [
     id: 1,
     name: 'Rock Paper Scissors',
     description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius deleniti sed, tenetur mollitia nisi perferendis eveniet at veniam sapiente? Quibusdam similique error repellat fugiat debitis quia cumque est illo dicta.',
-    feature_img: 'img/ss-rps-2.png',
-    info: ['Jimmy', 'Front End Dev', '2020'],
+      'A website where you can play rock-paper-scissors game with an AI.',
+    feature_img: 'img/screenshots/ss-rps-2.png',
+    info: ['Personal', 'Game', '2022'],
     technologies: ['html', 'css', 'javascript'],
     live_demo:
       'https://indiecodermm.github.io/modern-websites/rock-paper-scissor/index.html',
@@ -45,26 +56,14 @@ const projectList = [
   {
     id: 2,
     name: 'Wordle Clone',
-    description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius deleniti sed, tenetur mollitia nisi perferendis eveniet at veniam sapiente? Quibusdam similique error repellat fugiat debitis quia cumque est illo dicta.',
-    feature_img: 'img/ss-wdle-1.png',
+    description: 'A clone of popular Wordle game built in vanilla JavaScript',
+    feature_img: 'img/screenshots/ss-wdle-1.png',
     info: ['Jimmy', 'Front End Dev', '2022'],
     technologies: ['html', 'css', 'javascript'],
     live_demo:
       'https://indiecodermm.github.io/modern-websites/wordle/index.html',
     source:
       'https://github.com/IndieCoderMM/modern-websites/tree/master/wordle',
-  },
-  {
-    id: 3,
-    name: 'Awesome Project',
-    description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius deleniti sed, perferendis eveniet at veniam sapiente? Quibusdam similique error repellat fugiat debitis quia cumque est illo dicta.',
-    feature_img: 'img/work-snapshot00.png',
-    info: ['Tom', 'Back End Dev', '2022'],
-    technologies: ['html', 'bootstrap', 'ruby'],
-    live_demo: '#',
-    source: '#',
   },
 ];
 
@@ -118,13 +117,17 @@ function displayProjects(projectData) {
 }
 
 function showProjectDetail(projectId) {
-  const selectedProject = projectList[projectId];
+  const selectedProject = projectList.filter(
+    (project) => project.id === parseInt(projectId, 10)
+  )[0];
+  if (selectedProject === null) return;
   popUpWindow.classList.remove('hide');
   popUpWindow.querySelector('h2').innerText = selectedProject.name;
   popUpWindow
     .querySelector('.work-snapshot')
     .setAttribute('src', selectedProject.feature_img);
-  popUpWindow.querySelector('.work-description').innerText = selectedProject.description;
+  popUpWindow.querySelector('.work-description').innerText =
+    selectedProject.description;
   popUpWindow
     .querySelector('#live-btn')
     .setAttribute('href', selectedProject.live_demo);
@@ -221,21 +224,25 @@ form.addEventListener('submit', (e) => {
 // Toggle Menu Feature
 
 menuButton.addEventListener('click', toggleMenu);
-hamburgerMenu.querySelectorAll('a').forEach((item) => item.addEventListener('click', () => {
-  if (hamburgerMenu.classList.contains('mobile-menu')) {
-    toggleMenu();
-  }
-}));
+hamburgerMenu.querySelectorAll('a').forEach((item) =>
+  item.addEventListener('click', () => {
+    if (hamburgerMenu.classList.contains('mobile-menu')) {
+      toggleMenu();
+    }
+  })
+);
 
 // Dynamicall loading project section
-
+projectList.sort((a, b) => b.id - a.id);
 projectList.forEach((project) => displayProjects(project));
 
 // Buttons for pop up window
 
-document.querySelectorAll('.see-project-btn').forEach((btn) => btn.addEventListener('click', () => {
-  showProjectDetail(btn.id);
-}));
+document.querySelectorAll('.see-project-btn').forEach((btn) =>
+  btn.addEventListener('click', () => {
+    showProjectDetail(btn.id);
+  })
+);
 
 document.querySelector('#close-popup-btn').addEventListener('click', () => {
   popUpWindow.classList.add('hide');

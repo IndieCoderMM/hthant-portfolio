@@ -769,6 +769,7 @@ textarea:focus {
 
   .work-card {
     flex-direction: row;
+    align-items: center;
     gap: 30px;
     padding: 20px 40px 20px 20px;
   }
@@ -780,8 +781,8 @@ textarea:focus {
   }
 
   .work-snapshot {
+    width: 400px;
     object-fit: contain;
-    width: 55%;
     background-color: #6070ff;
   }
 

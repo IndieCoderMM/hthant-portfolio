@@ -28,7 +28,8 @@
 
 # :computer: Portfolio Website <a name="about-project"></a>
 
-This is my first project at the Microverse. For this project, I built a portfolio website where I can showcase my works.
+My portfolio website is a professional online presence that showcases my skills, experience and achievements as a web developer. The website is designed to give potential employers, client and colleagues an idea of my capabilities and style, to demonstrate the value I can bring to their team.
+I am constantly updating and expanding my portfolio with new projects and information, so be sure to check back often to see what I have been working on. 
 
 ## :gear: Built With <a name="built-with"></a>
 

@@ -138,6 +138,7 @@ function showProjectDetail(projectId) {
   });
   // Tech list
   const techList = popUpWindow.querySelector('.work-tags');
+  techList.textContent = '';
   selectedProject.technologies.forEach((tech) => {
     const li = document.createElement('li');
     li.innerText = tech;

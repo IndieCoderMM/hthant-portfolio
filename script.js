@@ -21,7 +21,7 @@ const projectList = [
     name: 'Chess Event Website',
     description:
       'A website for a chess tournament where people can learn more info about the event, see the featured players, and join the event.',
-    feature_img: 'img/screenshots/chess_event_site.png',
+    feature_img: 'img/screenshots/ss-chess-site.png',
     info: ['Microverse', 'Mod1', 'Capstone'],
     technologies: ['html', 'css', 'javascript', 'bootstrap'],
     live_demo: 'https://indiecodermm.github.io/chessevent-site/',
@@ -35,35 +35,31 @@ const projectList = [
     feature_img: 'img/screenshots/ss-yt-home.png',
     info: ['Personal', 'Front End', '2022'],
     technologies: ['html', 'css', 'javascript'],
-    live_demo:
-      'https://indiecodermm.github.io/modern-websites/youtube/index.html',
+    live_demo: 'https://indiecodermm.github.io/modern-websites/youtube/',
     source:
       'https://github.com/IndieCoderMM/modern-websites/tree/master/youtube',
   },
   {
     id: 1,
-    name: 'Rock Paper Scissors',
+    name: 'Commit Conquest',
     description:
-      'A website where you can play rock-paper-scissors game with an AI.',
-    feature_img: 'img/screenshots/ss-rps-2.png',
-    info: ['Personal', 'Game', '2022'],
-    technologies: ['html', 'css', 'javascript'],
-    live_demo:
-      'https://indiecodermm.github.io/modern-websites/rock-paper-scissor/index.html',
-    source:
-      'https://github.com/IndieCoderMM/modern-websites/tree/master/rock-paper-scissor',
+      'Commit Conquest is a game that rewards players for making git commits and allows them to compete on leaderboard.',
+    feature_img: 'img/screenshots/ss-commit-conquest.png',
+    info: ['Microverse', 'Mod2', '2022'],
+    technologies: ['javascript', 'webpack', 'leaderboard'],
+    live_demo: 'https://indiecodermm.github.io/commit-conquest/dist/',
+    source: 'https://github.com/IndieCoderMM/commit-conquest',
   },
   {
     id: 2,
-    name: 'Wordle Clone',
-    description: 'A clone of popular Wordle game built in vanilla JavaScript',
-    feature_img: 'img/screenshots/ss-wdle-1.png',
-    info: ['Jimmy', 'Front End Dev', '2022'],
-    technologies: ['html', 'css', 'javascript'],
-    live_demo:
-      'https://indiecodermm.github.io/modern-websites/wordle/index.html',
-    source:
-      'https://github.com/IndieCoderMM/modern-websites/tree/master/wordle',
+    name: 'Microtasks',
+    description:
+      'A simple productivity tool that allows user to create, manage and track their daily tasks.',
+    feature_img: 'img/screenshots/ss-todo-app.png',
+    info: ['Microverse', 'Mod2', '2022'],
+    technologies: ['html', 'css', 'javascript', 'webpack'],
+    live_demo: 'https://indiecodermm.github.io/todo-app/',
+    source: 'https://github.com/IndieCoderMM/todo-app',
   },
 ];
 

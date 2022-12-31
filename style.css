@@ -419,7 +419,9 @@ p {
 }
 
 .get-resume-btn {
-  width: 162px;
+  width: 180px;
+  text-decoration: none;
+  text-align: center;
 }
 
 /* Skill list  */

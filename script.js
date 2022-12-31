@@ -142,8 +142,10 @@ function showProjectDetail(projectId) {
   });
   // Tech list
   const techList = popUpWindow.querySelector('.work-tags');
-  selectedProject.technologies.forEach((tech, index) => {
-    techList.querySelector(`:nth-child(${index + 1})`).innerText = tech;
+  selectedProject.technologies.forEach((tech) => {
+    const li = document.createElement('li');
+    li.innerText = tech;
+    techList.appendChild(li);
   });
 }
 
